@@ -1,10 +1,20 @@
-```
-python dz8.py ignored '<script>alert('Hjack')</script>' 1
-```
+### Результат
+
+Мы видим что код ```<div class='message'>Invalid request: /<script>alert(Hjack)</script></div>``` попал без экарнирования так же как в браузере. Скриншоты так же приложенны из браузера.
+
+### Что было сделано
+- в изначальном коде были небольшие доработки из за портов 
+- добавлено получение ответа от сервера responses = sniff
+- обработка ответа в цикле по пакетам что бы собрать его
+- для удобства переносы были заменены в ответе 
+- добавлена отправка закрытие FIN
+
+
 
 
 ```
-python dz8.py ignored '<script>alert$ python dz8.py ignored '<script>alert('Hjack')</script>' 1
+Sidelnikov@Note-SPB MINGW64 /d/Project/Python/HSE/HSE-DZ8 (main)
+$ python dz8.py ignored '<script>alert('Hjack')</script>' 1
 Begin emission
 ..
 Finished sending 1 packets
@@ -173,6 +183,10 @@ input, textarea {
 
 </html>
 
+
+ Завершено 1 запросов
+
 ```
 
-Мы видим что код **<div class='message'>Invalid request: /<script>alert(Hjack)</script></div>** попал без экарнирования так же как в браузере. Скриншоты так же приложенны из браузера.
+![Код в браузере](scr_code.jpg)
+![Результат инекции](scr_res.jpg)
